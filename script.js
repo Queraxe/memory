@@ -5,6 +5,24 @@ let box = document.getElementsByClassName("box")[0];
 let infill = [
 	["hallo", "hello"],
 	["ich bin", "i am"],
+	["danke", "thank you"],
+	["bitte", "please"],
+	["tschüss", "goodbye"],
+	["ja", "yes"],
+	["nein", "no"],
+	["Entschuldigung", "sorry"],
+	["wie geht's?", "how are you?"],
+	["gut", "good"],
+	["schlecht", "bad"],
+	["Essen", "food"],
+	["trinken", "drink"],
+	["Wasser", "water"],
+	["Hilfe", "help"],
+	["Freund", "friend"],
+	["Haus", "house"],
+	["Auto", "car"],
+	["Arbeit", "work"],
+	["Schule", "school"],
 ];
 
 function flattenArray(array) {
@@ -68,6 +86,12 @@ function check() {
 	if (same) {
 		first.style.background = "green";
 		second.style.background = "green";
+		sleep(1000).then(() => {
+			first.style.visibility = "hidden";
+			second.style.visibility = "hidden";
+			first = null;
+			second = null;
+		});
 	} else {
 		first.style.background = "red";
 		second.style.background = "red";
