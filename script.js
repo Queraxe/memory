@@ -41,11 +41,11 @@ for (let card of document.getElementsByClassName("card")) {
 	card.onclick = function () {
 		counter++;
 		if (counter === 1) {
-			first = this.children[0].innerHTML;
+			first = this;
 		}
 		this.children[0].style.opacity = 1;
 		if (counter === 2) {
-			second = this.children[0].innerHTML;
+			second = this;
 			if (first != second) {
 				check();
 				sleep(1000).then(() => {
@@ -60,16 +60,31 @@ for (let card of document.getElementsByClassName("card")) {
 }
 
 function check() {
-	console.log(theSame(first, second));
+	let same = theSame(
+		first.children[0].innerHTML,
+		second.children[0].innerHTML
+	);
 
-	first = null;
-	second = null;
+	if (same) {
+		first.style.background = "green";
+		second.style.background = "green";
+	} else {
+		first.style.background = "red";
+		second.style.background = "red";
+	}
+
+	sleep(1000).then(() => {
+		first.style.background = "rgb(92, 131, 41)";
+		second.style.background = "rgb(92, 131, 41)";
+		first = null;
+		second = null;
+	});
 }
 
 function theSame(fi, se) {
 	let same;
 	for (let arr of infill) {
-		if (arr.includes(first) && arr.includes(second)) {
+		if (arr.includes(fi) && arr.includes(se)) {
 			same = true;
 			break;
 		} else {
