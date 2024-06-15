@@ -1,0 +1,60 @@
+html {
+	height: 100%;
+	width: 100%;
+
+	background-color: rgb(216, 255, 218);
+
+	font-family: "Heebo", sans-serif;
+}
+
+:root {
+	--t-time: 0.2s;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.box {
+	max-height: 90vh;
+	width: 90vw;
+
+	display: flex;
+	gap: 20px;
+
+	justify-content: center;
+
+	flex-wrap: wrap;
+}
+
+.card {
+	width: 200px;
+	aspect-ratio: 1;
+	background-color: rgb(92, 131, 41);
+	border-radius: 20px;
+
+	transition: var(--t-time);
+	scale: 1;
+
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	font-size: 25px;
+}
+
+.card:hover {
+	transition: var(--t-time);
+	scale: 1.05;
+}
+
+.card span {
+	transition: var(--t-time);
+	opacity: 0;
+}
