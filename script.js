@@ -3,21 +3,21 @@
 let box = document.getElementsByClassName("box")[0];
 
 let infill = [
-	[“ab”, “nach”],
-[“Wille, “innas”],
-[“binden”, “gwedh”],
-[“sprechen”, “ped”],
-[“können”, “pol”],
-[“und”, “a”],
-[“sprechen”, “carfa”],
-[“stark”,”tanc”],
-[“letzterer”, ”medui”],
-[“wenn”, ”ae”],
-[“Spitze”, ”aith”],
-[“gegenüber”, ”ath”],
-[“dritte”,”nail”],
-[“nicht”, ”baw”],
-[“unterstützend” ,”tulu”],
+	["ab", "nach"],
+	["Wille", "innas"],
+	["binden", "gwedh"],
+	["sprechen", "ped"],
+	["können", "pol"],
+	["und", "a"],
+	["sprechen", "carfa"],
+	["stark", "tanc"],
+	["letzterer", "medui"],
+	["wenn", "ae"],
+	["Spitze", "aith"],
+	["gegenüber", "ath"],
+	["dritte", "nail"],
+	["nicht", "baw"],
+	["unterstützend", "tulu"],
 ];
 
 function flattenArray(array) {
@@ -46,29 +46,39 @@ for (let string of shuffleFlattenedInfill) {
 	box.appendChild(div);
 }
 
+//click action
+
 let counter = 0;
 let first;
 let second;
+let wait = false;
 
 for (let card of document.getElementsByClassName("card")) {
 	card.onclick = function () {
+		if (wait === true) {
+			return;
+		}
+
 		counter++;
+
 		if (counter === 1) {
 			first = this;
-		}
-		this.children[0].style.opacity = 1;
-		if (counter === 2) {
+		} else if (counter === 2) {
 			second = this;
 			if (first != second) {
 				check();
+				wait = true;
 				sleep(1000).then(() => {
 					invisible();
+					wait = false;
 				});
 				counter = 0;
 			} else {
 				counter--;
 			}
 		}
+
+		this.children[0].style.opacity = 1;
 	};
 }
 
