@@ -9,7 +9,7 @@ let infill = [
 	["sprechen", "ped"],
 	["können", "pol"],
 	["und", "a"],
-	["sprechen", "carfa"],
+	["Tätigkeiten", "Kap"],
 	["stark", "tanc"],
 	["letzterer", "medui"],
 	["wenn", "ae"],
@@ -59,6 +59,8 @@ for (let card of document.getElementsByClassName("card")) {
 			return;
 		}
 
+		this.children[0].style.opacity = 1;
+
 		counter++;
 
 		if (counter === 1) {
@@ -77,8 +79,6 @@ for (let card of document.getElementsByClassName("card")) {
 				counter--;
 			}
 		}
-
-		this.children[0].style.opacity = 1;
 	};
 }
 
