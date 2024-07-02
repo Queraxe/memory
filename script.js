@@ -74,12 +74,18 @@ for (let card of document.getElementsByClassName("card")) {
 					invisible();
 					wait = false;
 				});
+				erhöhen();
 				counter = 0;
 			} else {
 				counter--;
 			}
 		}
 	};
+}
+
+function erhöhen() {
+	document.getElementsByClassName("headright")[0].innerHTML =
+		parseInt(document.getElementsByClassName("headright")[0].innerHTML) + 1;
 }
 
 function check() {
