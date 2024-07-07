@@ -2,6 +2,8 @@
 
 let box = document.getElementsByClassName("box")[0];
 
+let overallcounter = 0;
+
 let infill = [
 	["ab", "nach"],
 	["Wille", "innas"],
@@ -97,11 +99,18 @@ function check() {
 	if (same) {
 		first.style.background = "green";
 		second.style.background = "green";
+
 		sleep(1000).then(() => {
 			first.style.visibility = "hidden";
 			second.style.visibility = "hidden";
 			first = null;
 			second = null;
+
+			overallcounter++;
+
+			if (overallcounter === infill.length) {
+				finish();
+			}
 		});
 	} else {
 		first.style.background = "red";
@@ -138,3 +147,13 @@ function invisible() {
 		element.children[0].style.opacity = 0;
 	}
 }
+
+function finish() {
+	document.getElementsByClassName("score")[0].innerHTML = document.getElementsByClassName("headright")[0].innerHTML;
+	document.getElementsByClassName("score")[0].style.visibility = "visible";
+	document.getElementsByClassName("retry")[0].style.visibility = "visible";
+}
+
+document.getElementsByClassName("retry")[0].onclick = function () {
+	location.href = "game.html";
+};

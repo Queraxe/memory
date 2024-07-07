@@ -88,3 +88,52 @@ body {
 
 	border-radius: 7px;
 }
+
+.nameinput {
+	text-align: center;
+	height: 30px;
+	width: 200px;
+	border-radius: 15px 15px 0px 0px;
+	border: rgb(92, 131, 41), solid;
+	border-width: 3px;
+}
+.submit {
+	background-color: rgb(92, 131, 41);
+	height: 30px;
+	width: 210px;
+	border-radius: 0px 0px 15px 15px;
+	text-align: center;
+	font-size: small;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.score {
+	visibility: hidden;
+
+	position: absolute;
+	text-align: center;
+	width: 100px;
+	left: calc(100vw / 2 - 50px);
+	top: calc(100vh / 2 - 50px);
+	font-size: 100px;
+}
+.retry {
+	visibility: hidden;
+
+	position: absolute;
+	bottom: 20px;
+	height: 40px;
+	width: 100px;
+
+	background-color: rgb(92, 131, 41);
+
+	text-align: center;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 7px;
+}
